@@ -28,3 +28,21 @@ Zephyr version: 4.3.99
 Zephyr SDK version 0.17.4
 West version 1.5
 ```
+
+## Building with a different Zephyr Version(4.1)
+```
+west init -m https://github.com/zephyrproject-rtos/zephyr --mr v4.1-branch
+west update
+```
+
+You will also need to update the SDK to be compatible
+```
+wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.5/zephyr-sdk-0.16.5_linux-x86_64.tar.xz
+tar xf zephyr-sdk-0.16.5_linux-x86_64.tar.xz
+cd zephyr-sdk-0.16.5
+./setup.sh
+```
+This build with option `-DZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.16.5`
+
+### Example
+`west build -p always -b esp32s3_devkitc/esp32s3/procpu --sysbuild . -- -DDTC_OVERLAY_FILE=boards/esp32s3_devkitc.overlay -DZEPHYR_SDK_INSTALL_DIR=/projects/github_repos/zephyr_playground/zephyr_with_microros/zephyr-sdk-0.16.5`
