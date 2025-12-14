@@ -14,7 +14,7 @@ once done you need to activate the virtual environment to be able to build the r
 4. Go to the app you want to build and build.
     * For example if you are using the pimoroni pico plus 2 W board this is the command `west build -p always -b pico_plus2/rp2350b/m33 -- -DEXTRA_CONF_FILE=boards/rpi_pico.conf -DDTC_OVERLAY_FILE=boards/rpi_pico.overlay`
     * For ESP32 S3 Devkit C use this
-    `west build -p always -b esp32s3_devkitm/esp32s3/procpu --sysbuild . -- -DDTC_OVERLAY_FILE=boards/esp32s3_devkitc.overlay`
+    `west build -p always -b esp32s3_devkitc/esp32s3/procpu --sysbuild . -- -DDTC_OVERLAY_FILE=boards/esp32s3_devkitc.overlay`
 5. To Flash you can use `west flash --esp-device <device_path>`
 
 
