@@ -1,0 +1,20 @@
+/ {
+    aliases {
+        my-led = &led0;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        led0: d13 {
+            gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+        };
+    };
+};
+
+/* Node override MUST be top-level */
+/* This is a workaround for the bug https://github.com/zephyrproject-rtos/zephyr/commit/724929eec57d15752bd5da5d3546b4c3b9013cdd#r166812134 */
+/* https://github.com/zephyrproject-rtos/zephyr/issues/100554 and https://github.com/zephyrproject-rtos/zephyr/issues/96748 */
+&usb_otg {
+    status = "okay";
+    interrupts = <31 IRQ_DEFAULT_PRIORITY 0>;
+};
